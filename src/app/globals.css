@@ -13,10 +13,15 @@
   --font-editorial: 'PP Editorial', var(--font-geist-sans);
 }
 
+.dark {
+  --background: #081717;
+  --foreground: #FFFFF5;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #FFFFF5;
-    --foreground: #081717;
+  :root:not(.light) {
+    --background: #081717;
+    --foreground: #FFFFF5;
   }
 }
 
@@ -24,4 +29,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'PP Editorial', Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
