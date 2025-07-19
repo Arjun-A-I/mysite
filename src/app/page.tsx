@@ -62,7 +62,7 @@ export default function Home() {
         onMouseLeave={() => setIsHovering(false)}
         className="relative"
       >
-        <h1 className="text-[3rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-editorial font-light text-center">
+        <h1 className="text-[3rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-editorial font-light text-center cursor-default">
           {text.split('').map((letter, index) => (
             <span 
               key={index} 
