@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import GalaxyRectangle from './components/GalaxyRectangle';
 
 export default function Home() {
   const text = "Arjun A I ";
@@ -55,41 +56,55 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen px-4">
-      <div 
-        ref={containerRef}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        className="relative"
-      >
-        <h1 className="text-[3rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-editorial font-light text-center cursor-default">
-          {text.split('').map((letter, index) => (
-            <span 
-              key={index} 
-              id={`letter-${index}`}
-              className="inline-block transition-all duration-200 ease-out"
-              style={{
-                filter: `blur(${getBlurAmount(index)}px)`,
-              }}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </span>
-          ))}
-          <span className="italic">
-            {textItalic.split('').map((letter, index) => (
+    <div className="flex flex-col min-h-screen px-4">
+      {/* Top section - full height */}
+      <div className="flex-1"></div>
+      
+      {/* Middle section - text content */}
+      <div className="flex flex-col items-center gap-8">
+        <div 
+          ref={containerRef}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          className="relative"
+        >
+          <h1 className="text-[3rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-editorial font-light text-center cursor-default">
+            {text.split('').map((letter, index) => (
               <span 
-                key={`italic-${index}`} 
-                id={`letter-italic-${index}`}
+                key={index} 
+                id={`letter-${index}`}
                 className="inline-block transition-all duration-200 ease-out"
                 style={{
-                  filter: `blur(${getBlurAmount(index, true)}px)`,
+                  filter: `blur(${getBlurAmount(index)}px)`,
                 }}
               >
-                {letter}
+                {letter === ' ' ? '\u00A0' : letter}
               </span>
             ))}
-          </span>
-        </h1>
+            <span className="italic">
+              {textItalic.split('').map((letter, index) => (
+                <span 
+                  key={`italic-${index}`} 
+                  id={`letter-italic-${index}`}
+                  className="inline-block transition-all duration-200 ease-out"
+                  style={{
+                    filter: `blur(${getBlurAmount(index, true)}px)`,
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
+          </h1>
+        </div>
+      </div>
+      
+      {/* Bottom section - full height */}
+      <div className="flex-1 flex items-center justify-center">
+        <GalaxyRectangle 
+          className="w-32 h-8 xs:w-40 xs:h-10 sm:w-48 sm:h-12 md:w-60 md:h-14 lg:w-72 lg:h-16" 
+          particleCount={100}
+        />
       </div>
     </div>
   );
