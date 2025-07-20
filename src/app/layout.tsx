@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import "./fonts.css";
 import DarkModeToggle from "./components/DarkModeToggle";
 
 const geistSans = Geist({
@@ -12,6 +12,45 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Load PP Editorial font with Next.js font optimization
+const ppEditorial = localFont({
+  src: [
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-Ultralight.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-UltralightItalic.otf",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-Italic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-Ultrabold.otf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/otf/PPEditorialOld-UltraboldItalic.otf",
+      weight: "800",
+      style: "italic",
+    },
+  ],
+  variable: "--font-pp-editorial",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -33,7 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ppEditorial.variable} antialiased`}
       >
         <DarkModeToggle />
         {children}
