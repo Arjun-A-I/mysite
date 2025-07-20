@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import GalaxyRectangle from './components/GalaxyRectangle';
+import BlobCursor from './BlobCursor';
 
 export default function Home() {
   const text = "Arjun A I ";
@@ -57,6 +58,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen px-4">
+
+<BlobCursor
+  blobType="circle"
+  fillColor="#FFFFFF"
+  trailCount={3}
+  sizes={[60, 125, 75]}
+  opacities={[0.8, 0.8, 0.8]}
+  useFilter={true}
+  filterStdDeviation={30}
+  filterColorMatrixValues="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 35 -10"
+  fastDuration={0.1}
+  slowDuration={0.5}
+  zIndex={100}
+  useInvertEffect={true}
+/>
       {/* Top section - full height */}
       <div className="flex-1"></div>
       

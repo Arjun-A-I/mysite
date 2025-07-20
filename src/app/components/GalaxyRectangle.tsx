@@ -189,7 +189,7 @@ export default function GalaxyRectangle({
     // Handle resize
     const resizeObserver = new ResizeObserver(() => {
       updateCanvasSize();
-    });
+    }); 
     resizeObserver.observe(container);
 
     return () => {
@@ -206,7 +206,7 @@ export default function GalaxyRectangle({
     >
       {/* Main galaxy container */}
       <div 
-        className={`${className} bg-foreground/10 border-2 border-foreground/20 relative transition-transform duration-300 ease-out group-hover:scale-[0.85]`} 
+        className={`${className} galaxy-squeeze-target bg-foreground/10 border-2 border-foreground/20 relative transition-transform duration-300 ease-in-out group-hover:scale-[0.85]`} 
         style={{
           borderRadius: '3rem'
         }}
